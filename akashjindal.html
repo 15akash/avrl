@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="description" content="Web site created using javascript" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@800&family=Open+Sans&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+
+    <title>ARVL</title>
+    <style>
+      .main {
+        margin: 10% auto;
+        width: 200px;
+        height: 200px;
+      }
+      #container {
+        width: 200px;
+        height: 200px;
+        position: relative;
+        margin: auto;
+      }
+
+      #topLeft {
+        width: 50px;
+        height: 50px;
+        background-color: red;
+        border-radius: 30px;
+        position: absolute;
+        z-index: 3;
+      }
+
+      .topLeft--animation {
+        animation: top-left 6s alternate infinite;
+      }
+      @keyframes top-left {
+        0% {
+          background-color: red;
+          width: 50px;
+        }
+        25% {
+          background-color: yellow;
+          width: 100%;
+        }
+        50% {
+          background-color: skyblue;
+          width: 50px;
+        }
+        75% {
+          background-color: green;
+          width: 100%;
+        }
+        100% {
+          background-color: red;
+          width: 50px;
+        }
+      }
+      #bottomLeft {
+        width: 50px;
+        height: 50px;
+        border-radius: 30px;
+        background-color: green;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        z-index: 0;
+      }
+      .bottomLeft--animation {
+        animation: bottom-left 6s alternate infinite;
+      }
+      @keyframes bottom-left {
+        from {
+          height: 50px;
+        }
+        to {
+          height: 100%;
+        }
+        0% {
+          background-color: green;
+          height: 50px;
+        }
+        25% {
+          background-color: red;
+          height: 100%;
+        }
+        50% {
+          background-color: yellow;
+          height: 50px;
+        }
+        75% {
+          background-color: skyblue;
+          height: 100%;
+        }
+        100% {
+          background-color: green;
+          height: 50px;
+        }
+      }
+
+      #bottomRight {
+        width: 50px;
+        height: 50px;
+        background-color: skyblue;
+        position: absolute;
+        border-radius: 30px;
+        bottom: 0;
+        right: 0;
+        z-index: 1;
+      }
+
+      .bottomRight--animation {
+        animation: bottom-right 6s alternate infinite;
+      }
+      @keyframes bottom-right {
+        0% {
+          background-color: skyblue;
+          width: 50px;
+        }
+        25% {
+          background-color: green;
+          width: 100%;
+        }
+        50% {
+          background-color: red;
+          width: 50px;
+        }
+        75% {
+          background-color: yellow;
+          width: 100%;
+        }
+        100% {
+          background-color: skyblue;
+          width: 50px;
+        }
+      }
+
+      #topRight {
+        background-color: yellow;
+        width: 50px;
+        height: 50px;
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: 2;
+        border-radius: 30px;
+      }
+      .topRight--animation {
+        animation: top-right 6s alternate infinite;
+      }
+      @keyframes top-right {
+        0% {
+          background-color: yellow;
+          height: 50px;
+        }
+        25% {
+          background-color: skyblue;
+          height: 100%;
+        }
+        50% {
+          background-color: green;
+          height: 50px;
+        }
+        75% {
+          background-color: red;
+          height: 100%;
+        }
+        100% {
+          background-color: yellow;
+          height: 50px;
+        }
+      }
+      .btn {
+        display: flex;
+        justify-content: space-between;
+        padding: 0 10px;
+        margin-top: 50px;
+      }
+      .button {
+        color: white;
+        background-color: #3399ff;
+        padding: 5px 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main">
+      <div id="container">
+        <div id="topLeft"></div>
+        <div id="bottomLeft"></div>
+        <div id="topRight"></div>
+        <div id="bottomRight"></div>
+      </div>
+      <div class="btn">
+        <button class="button" onclick="start()">Start</button>
+        <button class="button" onclick="stop()">Stop</button>
+      </div>
+    </div>
+    <script>
+      var idArray = ["topLeft", "topRight", "bottomLeft", "bottomRight"];
+      function start() {
+        for (i = 0; i < idArray.length; i++) {
+          var element = document.getElementById(idArray[i]);
+          element.classList.add(idArray[i] + "--animation");
+        }
+      }
+
+      function stop() {
+        for (i = 0; i < idArray.length; i++) {
+          var element = document.getElementById(idArray[i]);
+          element.classList.remove(idArray[i] + "--animation");
+        }
+      }
+    </script>
+  </body>
+</html>
